@@ -8,7 +8,7 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.transaction.annotation.Transactional;
 
 public interface Repo_Tokenadmin extends JpaRepository<Tokenadmin,Integer> {
-    @Query(value = "SELECT * FROM tokenadmin t where t.token= ?1 and t.expiration_date>now()",nativeQuery = true)
+    @Query(value = "SELECT * FROM tokenadmin t where t.token= ?1 and t.expiration_date>now() order by t.expiration_date desc limit 1",nativeQuery = true)
     Tokenadmin findTokenByToken(String token);
 
     @Transactional
