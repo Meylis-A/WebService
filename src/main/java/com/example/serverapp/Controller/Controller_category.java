@@ -50,7 +50,7 @@ public class Controller_category {
         Tokenadmin token = new Tokenadmin();
         token = token.check_Expiration(bearerToken, repo_tokenadmin);
         if (token == null) {
-            return new ResponseError("session expiré");
+            return new ResponseError("Access denied");
         }
         try {
             System.out.println(category.toString());
