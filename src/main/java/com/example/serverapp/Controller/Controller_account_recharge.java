@@ -79,25 +79,21 @@ public class Controller_account_recharge {
     }
 
     @PostMapping("{recharge_id}/valid")
-    public Object validate( @PathVariable int recharge_id,@RequestBody Account_recharge_validation account_recharge_validation){
-//        try{
-////            Tokenadmin t=new Tokenadmin().check_Expiration(token,getRepo_tokenadmin());
-////            if(t==null)
-////                return new ResponseError("Access denied");
-//
-//            Account_recharge r=new Account_recharge();
-//            r.setId(recharge_id);
-//            account_recharge_validation.setAccount_recharge(r);
-//
-//            getRepo_recharge_validation().save(account_recharge_validation);
-//        }catch (Throwable e){
-//
-//            e.printStackTrace();
-//            return new ResponseError(e.getMessage());
-//        }
-//        return new ResponseData("Success");
+    public Object validate(  @RequestHeader("Authorization") String token,@PathVariable int recharge_id,@RequestBody Account_recharge_validation account_recharge_validation){
+        try{
+            Tokenadmin t=new Tokenadmin().check_Expiration(token,getRepo_tokenadmin());
+            if(t==null)
+                return new ResponseError("Access denied");
 
-        return new ResponseData("success");
+            Account_recharge r=new Account_recharge();
+            r.setId(recharge_id);
+            account_recharge_validation.setAccount_recharge(r);
+
+            getRepo_recharge_validation().save(account_recharge_validation);
+        }catch (Throwable e){
+            return new ResponseError(e.getMessage());
+        }
+        return new ResponseData("Success");
     }
 
     @GetMapping()
