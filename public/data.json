@@ -1,0 +1,32 @@
+{
+    "data": [
+        {
+            "id": 1,
+            "title": "Laptop",
+            "description": "Used laptop in good condition",
+            "min_price": 250.0,
+            "start_date": "2023-01-13 15:20:37",
+            "duration": 24.0,
+            "category": {
+                "id": 1,
+                "category_name": "Electronics"
+            },
+            "user_account": {
+                "id": 1,
+                "userkey": "#u1",
+                "username": "John Doe",
+                "email": "johndoe@example.com",
+                "password": null
+            },
+            "images": [
+                "/test/image (2).jpg",
+                "/test/image (3).jpg",
+                "/test/image (4).jpg",
+                "/test/image (5).jpg",
+                "/test/image (6).jpg",
+                "/test/image (1).jpg",
+                "/test/image (7).jpg"
+            ]
+        }
+    ]
+}
