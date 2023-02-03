@@ -79,11 +79,11 @@ public class Controller_account_recharge {
     }
 
     @PostMapping("{recharge_id}/valid")
-    public Object validate(  @RequestHeader("Authorization") String token,@PathVariable int recharge_id,@RequestBody Account_recharge_validation account_recharge_validation){
+    public Object validate( @PathVariable int recharge_id,@RequestBody Account_recharge_validation account_recharge_validation){
         try{
-            Tokenadmin t=new Tokenadmin().check_Expiration(token,getRepo_tokenadmin());
-            if(t==null)
-                return new ResponseError("Access denied");
+//            Tokenadmin t=new Tokenadmin().check_Expiration(token,getRepo_tokenadmin());
+//            if(t==null)
+//                return new ResponseError("Access denied");
 
             Account_recharge r=new Account_recharge();
             r.setId(recharge_id);
